@@ -1,0 +1,26 @@
+# Top-level runtime noise
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Open5GS generated outputs
+open5gs-2.7.7/artifacts/
+open5gs-2.7.7/install/
+open5gs-2.7.7/build/
+!open5gs-2.7.7/build/
+open5gs-2.7.7/build/*
+!open5gs-2.7.7/build/configs/
+!open5gs-2.7.7/build/configs/open5gs/
+!open5gs-2.7.7/build/configs/open5gs/**
+
+# OAI generated outputs
+openairinterface5g/cmake_targets/ran_build/
+openairinterface5g/**/*.o
+openairinterface5g/**/*.a
+openairinterface5g/**/*.so
+openairinterface5g/**/*.pyc
+
+# Local databases and captures
+data/
+pcap/
