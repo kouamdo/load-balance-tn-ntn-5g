@@ -213,13 +213,22 @@ evaluate_profile() {
     local profile="${1:-$PROFILE}"
 
     echo "[INFO] Evaluating profile=$profile"
+    echo "[INFO] Validation focus: UE progress from radio sync to AMF visibility"
+    echo "[INFO] Stage 1: Radio synchronization"
     check_log_contains "gNB NGSetupResponse" "$GNB_LOG" 'Received NGSetupResponse from AMF'
     check_log_contains "UE PBCH decoded" "$UE_LOG" 'pbch decoded sucessfully|pbch decoded successfully'
+    check_log_contains "UE synchronized" "$UE_LOG" 'UE synchronized|Initial sync successful'
     check_log_contains "UE SIB1 decoded" "$UE_LOG" 'SIB1 decoded'
-    check_log_contains "gNB PRACH/RA activity" "$GNB_LOG" 'PRACH|RACH|RRCSetup|CCCH|Msg3|Random Access'
-    check_log_contains "AMF UE activity" "$OPEN5GS_LOG_DIR/amf.log" 'Registration request|Unknown UE by SUCI|Authentication|gmm_state|RAN_UE|InitialUEMessage'
-    check_log_contains "SMF PDU activity" "$OPEN5GS_LOG_DIR/smf.log" 'PDU Session|UE address|Selected UPF|N1N2MessageTransfer|sm-context'
-    check_log_contains "UPF user-plane activity" "$OPEN5GS_LOG_DIR/upf.log" 'GTP-U|PFCP session|Session'
+
+    echo "[INFO] Stage 2: Random access and RRC"
+    check_log_contains "gNB PRACH detected" "$GNB_LOG" 'PRACH detected|preamble|Random Access|Msg3|RACH:'
+    check_log_contains "gNB RRC setup activity" "$GNB_LOG" 'RRCSetup|RRC Setup|CCCH|SetupRequest|InitialUEMessage'
+    check_log_contains "UE RRC activity" "$UE_LOG" 'RRCSetup|RRC Setup|ra-ResponseWindow|Random Access|Msg3|CCCH'
+
+    echo "[INFO] Stage 3: Core visibility"
+    check_log_contains "AMF UE detected" "$OPEN5GS_LOG_DIR/amf.log" 'InitialUEMessage|RAN_UE|Registration request|Unknown UE by SUCI|Authentication|Identity response|Registration complete|gmm_state'
+    check_log_contains "Optional SMF PDU activity" "$OPEN5GS_LOG_DIR/smf.log" 'PDU Session|UE address|Selected UPF|N1N2MessageTransfer|sm-context'
+    check_log_contains "Optional UPF user-plane activity" "$OPEN5GS_LOG_DIR/upf.log" 'GTP-U|PFCP session|Session'
 
     if [[ "$profile" == "leo" ]]; then
         echo "[INFO] LEO runtime step: $LEO_STEP"

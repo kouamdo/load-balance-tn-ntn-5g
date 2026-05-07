@@ -212,6 +212,69 @@ For the full procedure, see:
 
 - `openairinterface5g/doc/handover-tutorial.md`
 
+## Validation Stages
+
+The practical validation target is intentionally staged. The project is not
+considered blocked on `SMF` or `UPF` activity if the UE has not yet reached the
+core signaling path.
+
+### Stage 1: Radio Synchronization
+
+Goal:
+- gNB attached to AMF over `N2`
+- UE decodes `PBCH`
+- UE reaches `Initial sync successful`
+- UE decodes `SIB1`
+
+Typical evidence:
+- `Received NGSetupResponse from AMF` in gNB log
+- `pbch decoded successfully` in UE log
+- `UE synchronized` in UE log
+- `SIB1 decoded` in UE log
+
+### Stage 2: Random Access And RRC
+
+Goal:
+- gNB detects `PRACH` / random access
+- UE progresses into `RRC Setup`
+- gNB sees `CCCH`, `Msg3`, or `RRCSetup`-related activity
+
+This is the current focus when Stage 1 passes but the 5GC still does not see
+the UE.
+
+Typical evidence:
+- `PRACH`, `Random Access`, `Msg3`, or `RRCSetup` in gNB log
+- `RRC Setup`, `CCCH`, or random access progression in UE log
+
+### Stage 3: Core Visibility
+
+Goal:
+- UE becomes visible to the 5GC at `AMF` level
+
+This is the first core-level success criterion that matters for this project.
+It is intentionally earlier than `PDU Session`, `SMF`, `UPF`, or Internet/DN
+reachability.
+
+Typical evidence:
+- `InitialUEMessage`
+- `RAN_UE`
+- `Registration request`
+- `Authentication`
+- `Identity response`
+- `Registration complete`
+
+in `amf.log`.
+
+### Optional Stage 4: PDU Session And User Plane
+
+Only after Stage 3 do `SMF`, `UPF`, `DN`, `ogstun`, routing, and `NAT` become
+important.
+
+This means:
+- `UPF` NAT is **not required** for proving that the UE is detected by the 5GC
+- `UPF` NAT **is required later** if the target becomes `PDU Session` data path
+  or Internet/DN access
+
 ## Recommended Experiment Roadmap
 
 1. Confirm that `fixed delay` reaches at least `SIB1` and ideally `RRC`/`NAS`.
