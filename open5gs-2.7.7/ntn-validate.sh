@@ -3,8 +3,9 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_PARENT="$(cd "$ROOT_DIR/.." && pwd)"
 OPEN5GS_LOG_DIR="$ROOT_DIR/install/var/log/open5gs"
-OAI_ROOT="${OAI_ROOT:-/home/ledoux/openairinterface5g}"
+OAI_ROOT="${OAI_ROOT:-$REPO_PARENT/openairinterface5g}"
 OAI_BUILD_DIR="${OAI_BUILD_DIR:-$OAI_ROOT/cmake_targets/ran_build/build}"
 MONGO_DBPATH="${MONGO_DBPATH:-/data/db}"
 MONGO_LOG="${MONGO_LOG:-/var/log/mongodb/mongod.log}"
@@ -35,7 +36,7 @@ Usage:
   ./ntn-validate.sh status
 
 Environment:
-  OAI_ROOT=/home/ledoux/openairinterface5g
+  OAI_ROOT=../openairinterface5g
   OAI_BUILD_DIR=$OAI_ROOT/cmake_targets/ran_build/build
   PROFILE=fixed|leo
   LEO_STEP=leo-min|leo-drift|leo-fo|leo-full|leo-full-auto-ta
