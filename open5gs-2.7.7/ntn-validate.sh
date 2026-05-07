@@ -120,7 +120,7 @@ start_gnb() {
     ensure_dirs
 
     echo "[START] gNB profile=$profile"
-    nohup "$OAI_BUILD_DIR/nr-softmodem" -O "$conf" --rfsim >"$GNB_LOG" 2>&1 &
+    nohup env LD_LIBRARY_PATH="$OAI_BUILD_DIR:${LD_LIBRARY_PATH:-}" "$OAI_BUILD_DIR/nr-softmodem" -O "$conf" --rfsim >"$GNB_LOG" 2>&1 &
     disown
     echo "[INFO] gNB log: $GNB_LOG"
 }
@@ -175,9 +175,9 @@ start_ue() {
     echo "[START] UE profile=$profile"
     if [[ "$profile" == "leo" ]]; then
         mapfile -t extra_args < <(leo_ue_args)
-        nohup "$OAI_BUILD_DIR/nr-uesoftmodem" -O "$conf" "${common_args[@]}" "${extra_args[@]}" >"$UE_LOG" 2>&1 &
+        nohup env LD_LIBRARY_PATH="$OAI_BUILD_DIR:${LD_LIBRARY_PATH:-}" "$OAI_BUILD_DIR/nr-uesoftmodem" -O "$conf" "${common_args[@]}" "${extra_args[@]}" >"$UE_LOG" 2>&1 &
     else
-        nohup "$OAI_BUILD_DIR/nr-uesoftmodem" -O "$conf" "${common_args[@]}" >"$UE_LOG" 2>&1 &
+        nohup env LD_LIBRARY_PATH="$OAI_BUILD_DIR:${LD_LIBRARY_PATH:-}" "$OAI_BUILD_DIR/nr-uesoftmodem" -O "$conf" "${common_args[@]}" >"$UE_LOG" 2>&1 &
     fi
     disown
     echo "[INFO] UE log: $UE_LOG"
