@@ -1,0 +1,85 @@
+CMDLINE: "/home/ledoux/load-balance-tn-ntn-5g/openairinterface5g/cmake_targets/ran_build/build/nr-uesoftmodem" "-O" "/home/ledoux/load-balance-tn-ntn-5g/openairinterface5g/targets/PROJECTS/GENERIC-NR-5GC/CONF/ue.ntn-fixeddelay.local.conf" "--rfsim" "--rfsimulator.[0].serveraddr" "127.0.0.1" "--band" "254" "-C" "2488400000" "--CO" "-873500000" "-r" "25" "--numerology" "0" "--ssb" "60" 
+[UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
+[0m[UTIL]   threadCreate() for Tpool0_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool1_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool2_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool3_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool4_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool5_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool6_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool7_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool8_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool9_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool10_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool11_-1: creating thread with affinity ffffffff, priority 97
+[0m[OPT]    OPT disabled
+[0m[HW]     Version: Branch: develop Abrev. Hash: d420f8c123 Date: Thu Apr 30 15:24:22 2026 +0000
+[0m[NR_RRC] create TASK_RRC_NRUE 
+[0m[UTIL]   threadCreate() for TASK_RRC_NRUE: creating thread with affinity ffffffff, priority 50
+[0m[UTIL]   threadCreate() for TASK_NAS_NRUE: creating thread with affinity ffffffff, priority 50
+[0m[SIM]    UICC simulation: IMSI=2089900007487, IMEISV=6754567890123413, Ki=fec86ba6eb707ed08905757b1bb44b8f, OPc=C42449363BBAD02B66D16BC975D77CC1
+[0m[SIM]    overriding potential uicc0.dnn/nssai_sst/nssai_sd from uicc0.pdu_sessions
+[0m[SIM]    will request PDU session ID 1, type 1, DNN oai, NSSAI 1.ffffff
+[0m[93m[NR_PHY] Ignoring command line RU parameters, using the following instead:
+[0m[NR_PHY] RU 0: nb_tx 1, nb_rx 1, att_tx 0, att_rx 0, max_rxgain 114, tune_offset 0.000000, if_frequency 0, if_freq_offset 0, sdr_addrs "type=x300", tx_subdev "", rx_subdev "", clock_source 0, time_source 0
+[0m[93m[NR_PHY] Ignoring command line cell parameters, using the following instead:
+[0m[NR_PHY] cell 0: ru_id 0, band 254, DL freq 2488400000, UL freq_offset -873500000, numerology 0, N_RB_DL 25, ssb_start 60
+[0m[NR_MAC] [UE0] Initializing MAC
+[0m[NR_MAC] Initializing dl and ul config_request. num_slots = 10
+[0m[RLC]    Activated srb0 for UE 0
+[0m[UTIL]   threadCreate() for time source iq samples: creating thread with affinity ffffffff, priority 2
+[0m[UTIL]   time manager configuration: [time source: iq_samples] [mode: standalone] [server IP: 127.0.0.1} [server port: 7374] (server IP/port not used)
+[0m[PHY]    Set UE nb_rx_antenna 1, nb_tx_antenna 1, threequarter_fs 0, ofdm_offset_divisor 8
+[0m[PHY]    SA init parameters. DL freq 2488400000 UL offset -873500000 SSB numerology 0 N_RB_DL 25
+[0m[PHY]    Init: N_RB_DL 25, first_carrier_offset 362, nb_prefix_samples 36,nb_prefix_samples0 40, ofdm_symbol_size 512
+[0m[93m[PHY]    samples_per_subframe 7680/per second 7680000, wCP 7168
+[0m[PHY]    Set UE_fo_compensation 0, UE_scan_carrier 0, UE_no_timing_correction 0 
+, chest-freq 0, chest-time 0
+[0m[UTIL]   threadCreate() for SYNC__actor: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for DL__actor: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for DL__actor: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for DL__actor: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for DL__actor: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for UL__actor: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for UL__actor: creating thread with affinity ffffffff, priority 97
+[0m[PHY]    Initializing UE vars for gNB TXant 1, UE RXant 1
+[0m[PHY]    prs_config configuration NOT found..!! Skipped configuring UE for the PRS reception
+[0m[PHY]    HW: Configuring ru_id 0, sample_rate 7680000.000000, tx/rx num_channels 1/1, duplex_mode FDD
+[0m[PHY]    HW: Configuring channel 0 (rf_chain 0): setting tx_freq 1614900000 Hz, rx_freq 2488400000 Hz, tune_offset 0
+[0m[PHY]    HW: Configuring channel 0 (rf_chain 0): setting tx_gain 0, rx_gain 114
+[0m[UTIL]   threadCreate() for ru_start_thread: creating thread with affinity ffffffff, priority 97
+[0m[HW]     propagation delay 20.000000 ms, 153600 samples
+[0m[HW]     Running as client: will connect to a rfsimulator server side
+[0m[HW]     [RAU] has loaded RFSIMULATOR device.
+[0m[HW]     Trying to connect to 127.0.0.1:4043
+[0m[HW]     Connection to 127.0.0.1:4043 established
+[0m[32m[HW]     RFsim: Number of antennas changed from 0 to 1
+[0m[PHY]    Intializing UE Threads for instance 0 ...
+[0m[UTIL]   threadCreate() for UEthread_0: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for L1_UE_stats_0: creating thread with affinity ffffffff, priority 1
+[0m[93m[PHY]    SSB position provided
+[0m[93m[NR_PHY] Starting sync detection
+[0m[PHY]    [UE thread Synch] Running Initial Synch 
+[0m[NR_PHY] Starting cell search with center freq: 2488400000, bandwidth: 25. Scanning for 1 number of GSCN.
+[0m[NR_PHY] Scanning GSCN: 0, with SSB offset: 60, SSB Freq: 0.000000
+[0m[32m[PHY]    Initial sync: pbch decoded sucessfully, ssb index 0
+[0m[PHY]    pbch rx ok. rsrp:51 dB/RE, adjust_rxgain:-1 dB
+[0m[NR_PHY] Cell Detected with GSCN: 0, SSB SC offset: 60, SSB Ref: 0.000000, PSS Corr peak: 90 dB, PSS Corr Average: 63
+[0m[PHY]    [UE0] In synch, rx_offset 38400 samples
+[0m[PHY]    [UE 0] Measured Carrier Frequency offset -3 Hz
+[0m[32m[PHY]    Initial sync successful, PCI: 0
+[0m[PHY]    HW: Configuring channel 0 (rf_chain 0): setting tx_freq 1614899998 Hz, rx_freq 2488399997 Hz, tune_offset 0
+[0m[PHY]    Got synch: hw_slot_offset 10, carrier off -3 Hz
+[0m[NR_RRC] [UE 0] BCCH update: phyCellID 0->0, arfcn_ssb 0->497770
+[0m[32m[PHY]    UE synchronized! decoded_frame_rx=108 UE->init_sync_frame=1 trashed_frames=4
+[0m[PHY]    Resynchronizing RX by 38400 samples
+[0m[HW]     received write reorder clear context
+[0m[PHY]    max_pos_acc = 0, shiftForNextFrame = 0
+[0m[32m[NR_RRC] SIB1 decoded
+[0m[NR_MAC] [UE 0] Initial cell selection: dl_frequency=2486150 kHz (from command-line, band=254, scs=0)
+[0m[NR_MAC] Computing frequency (nrarfcn 322530 => 1612650 KHz, NR band 254
+[0m[NR_MAC] Initial cell selection: uplink_frequency=1612650 kHz (from absoluteFrequencyPointA=322530, band=254, scs=0)
+[0m[PHY]    N_TA_offset changed from 0 to 100
+[0m[ITTI]   Queue for TASK_RRC_NRUE task size: 22 (last message NRRRC_FRAME_PROCESS)
+[0m[ITTI]   Queue for TASK_RRC_NRUE task size is back under 10% of max size
+[0m
